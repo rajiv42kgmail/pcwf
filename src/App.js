@@ -7,6 +7,7 @@ import Header from './Component/Header';
 import Footer from './Component/Footer';
 import Render from './Component/Render';
 import Form_type from './Component/Form_type';
+import Roles from './Component/Roles';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -26,6 +27,7 @@ function App() {
                                 <Route path="/about" element={<Aboutus/>} />
                                 <Route path="/render" element={<Render/>} />
                                 <Route path="/form_type" element={<Form_type/>} />
+                                <Route path="/roles" element={<Roles/>} />
 
                             </Routes>
 
