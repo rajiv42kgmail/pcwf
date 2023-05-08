@@ -6,18 +6,27 @@ const Roles = () => {
         if(e.target.name == 'roleType')  {   
             let selected='';//will be selected option in select
             let selected_opt=(e.target.selectedOptions);
-            console.log(selected_opt)
+            //console.log(selected_opt)
             for (let i = 0; i < selected_opt.length; i++){
                 selected += (selected_opt.item(i).value) + ",";
             }
             selected = selected.substring(0,selected.length-1);
             setUser(prev => ({...prev,[e.target.name]:selected }))
-
         }   
 
+        if(e.target.name == 'roles')  { 
+          let checkedValue = '';
+          var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+          for (let i = 0; i < checkboxes.length; i++){
+               checkedValue += checkboxes[i].value + ",";
+          } 
+         // console.log(checkedValue)
+         checkedValue = checkedValue.substring(0,checkedValue.length-1);
+          setUser(prev => ({...prev,[e.target.name]:checkedValue }))
+      }   
 
 
-       // console.log(user)
+        //console.log(user)
     }
 
    const[user,setUser] = useState({
@@ -32,11 +41,11 @@ const Roles = () => {
 //        console.log(final.roleType)
     }
 
-
-
     return (
         <>
                     <h1>{final.roleType}</h1>
+                    <h1>{final.roles}</h1>
+
 
             <div className="container-fluid px-4">
                 <h1 className="mt-4">Roles Management</h1>
