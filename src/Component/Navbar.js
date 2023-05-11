@@ -34,7 +34,7 @@ const Navbar = () => {
                                             <a className="nav-link" href="login.html">User</a>
                                         </nav>
                                         <nav className="sb-sidenav-menu-nested nav">
-                                            <NavLink to={"/roles"} className="nav-link">Roles</NavLink>
+                                            <NavLink to={"/roleslist"} className="nav-link">Roles</NavLink>
                                         </nav>
                                       
                                  

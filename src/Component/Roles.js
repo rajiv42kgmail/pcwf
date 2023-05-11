@@ -1,9 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 const Roles = () => {
+  const navigate = useNavigate();
+
+  function cancelPage() {
+    navigate("/roleslist");
+
+  }
+
     const handleChange = (e) => {
         e.preventDefault(); 
-        if(e.target.name == 'roleType')  {   
+        if(e.target.name === 'roleType')  {   
             let selected='';//will be selected option in select
             let selected_opt=(e.target.selectedOptions);
             //console.log(selected_opt)
@@ -44,7 +53,10 @@ const Roles = () => {
         setFinal(user);
 //        console.log(final.roleType)
     }
-
+    
+    
+    
+    
     return (
         <>
                     <h1>{final.roleType}</h1>
@@ -53,7 +65,7 @@ const Roles = () => {
 
 
             <div className="container-fluid px-4">
-                <h1 className="mt-4">Roles Management</h1>
+                <h1 className="mt-4">Create Roles</h1>
                 <div className="row">
                     <form onSubmit={printData}>
                         <label htmlFor='RolesType'>Role Type</label>
@@ -103,6 +115,7 @@ const Roles = () => {
 <br />
 
 <button>Submit</button>
+<button onClick={cancelPage}>Cancel</button>
 
 
                     </form>
