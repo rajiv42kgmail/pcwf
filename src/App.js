@@ -9,6 +9,8 @@ import Render from './Component/Render';
 import Form_type from './Component/Form_type';
 import Roles from './Component/Roles';
 import Roleslist from './Component/Roleslist';
+import Userlist from './Component/Userlist';
+import Manageuser from './Component/Manageuser';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -30,9 +32,10 @@ function App() {
                                 <Route path="/form_type" element={<Form_type/>} />
                                 <Route path="/roles" element={<Roles/>} />
                                 <Route path="/roleslist" element={<Roleslist/>} />
+                                <Route path="/userlist" element={<Userlist/>} />
+                                <Route path="/manageuser" element={<Manageuser/>} />
 
                             </Routes>
-
                         </main>
                         <Footer />
 

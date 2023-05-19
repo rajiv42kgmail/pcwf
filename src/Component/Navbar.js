@@ -31,7 +31,7 @@ const Navbar = () => {
                                     </NavLink>
                                     <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav className="sb-sidenav-menu-nested nav">
-                                            <a className="nav-link" href="login.html">User</a>
+                                             <NavLink to={"/userlist"} className="nav-link">User</NavLink>
                                         </nav>
                                         <nav className="sb-sidenav-menu-nested nav">
                                             <NavLink to={"/roleslist"} className="nav-link">Roles</NavLink>
