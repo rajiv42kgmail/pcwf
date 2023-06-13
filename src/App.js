@@ -34,6 +34,7 @@ function App() {
                                 <Route path="/roleslist" element={<Roleslist/>} />
                                 <Route path="/userlist" element={<Userlist/>} />
                                 <Route path="/manageuser" element={<Manageuser/>} />
+                                <Route path="/manageuser/:id" element={<Manageuser/>} />
 
                             </Routes>
                         </main>

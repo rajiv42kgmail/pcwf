@@ -1,27 +1,20 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Userdata from '../Userdata';
+import UserRecord from './UserRecord';
 const Userlist = () => {
   const navigate = useNavigate();
 
   function manageUser() {
     navigate("/manageuser");
   }
+  
   var getRow = [];
-  Userdata.map((cval) => {
-    getRow.push
-     return (
-      <>
-   
-           <tr>
-             <td>{cval.username} {cval.userid}</td>
-             <td>{cval.roleType}</td>
-          </tr>
-          
-      </>
-    )
+  Userdata.forEach((cval) => {
+    getRow.push(<UserRecord cval={cval} key={cval.userid} />)
   })
 
+  
 
 
   return (
@@ -37,13 +30,13 @@ const Userlist = () => {
           <table className="table">
             <thead>
               <tr>
-                <th scope="col">Roles Type</th>
+                <th scope="col">Username</th>
                 <th scope="col">Roles</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-              {
-                              }
+              {getRow}
             </tbody>
           </table>
         </div>

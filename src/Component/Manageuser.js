@@ -1,10 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Rolesdata from '../Rolesdata';
 import Userdirectory from '../Userdirectory';
 
 const Manageuser = () => {
+    
+    const params = useParams();
+    console.log(params); // 👉️ {userId: '4200'}
+
     const navigate = useNavigate();
 
     function cancelPage() {
