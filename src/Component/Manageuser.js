@@ -1,25 +1,50 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import Rolesdata from '../Rolesdata';
 import Userdirectory from '../Userdirectory';
+import GetUserRecord from './Userapp/GetUserRecord';
+var getRoleType = [];
+var getUsername='';
+var getDisabled=false;
+//console.log(getRoleType);
+
 
 const Manageuser = () => {
-    
+
     const params = useParams();
-    console.log(params); // 👉️ {userId: '4200'}
-
-    const navigate = useNavigate();
-
-    function cancelPage() {
-        navigate("/userlist");
-
-    }
     const [user, setUser] = useState({
         username: "",
         roleType: "",
+        roleTypeValue:""
     })
-  
+ // console.log(params.id)
+ if(params.id) {
+    GetUserRecord.map((userRecordval) => {
+     getUsername = userRecordval.username;
+     user.username=getUsername;
+     user.roleType=userRecordval.roleType;
+      getRoleType = userRecordval.roleType.split(",");
+      user.roleTypeValue={value: getRoleType};
+      getDisabled = 'readonly';
+})
+
+                        
+//console.log(params.id)
+
+} else {
+    if(document.getElementById('exampleDataList')) {
+        document.getElementById('exampleDataList').removeAttribute("disabled");
+    }
+
+} 
+   // console.log(params); 
+    const navigate = useNavigate();
+    function cancelPage() {
+        navigate("/userlist");
+    }
+
+   
     const handleChange = (e) => {
         e.preventDefault();
         if(e.target.name === 'username') {
@@ -38,10 +63,11 @@ const Manageuser = () => {
         }
         setUser(user);
     }
+    
     const submitPage = (e) => {  
-
         e.preventDefault();
-        console.log(user)
+        setUser(user)
+        console.log(user);
     }
 
     return (
@@ -53,28 +79,30 @@ const Manageuser = () => {
                     <form method='post'>
                         <label htmlFor='RolesType'>Role Type</label>
                         <div className="form-group">
-                            <select name="roleType" className="form-control" onChange={handleChange} id="exampleFormControlSelect1"  multiple >
-
-                                {
-                                    Rolesdata.map((cval) => {
-                                        return (
-                                            <option key={cval.roleType} value={cval.roleType}>{cval.roleType}</option>
-                                        )
-                                    })
-                                }
+                            <select name="roleType" className="form-select" onChange={handleChange} id="exampleFormControlSelect1" defaultValue={getRoleType}  multiple >
+                           {     
+                            Rolesdata.map((cval) => {
+                               return(
+                                <option  key={cval.roleType} value={cval.roleType}>{cval.roleType}</option>
+                               )     
+                                })
+                            }    
                             </select>
+                                
+
                         </div>
 
 
 
                         <br />
                         <label htmlFor='Roles'>Username</label>
-                        <input name="username" className="form-control" list="datalistOptions" id="exampleDataList" onChange={handleChange} placeholder="Type to search..." />
+                        <input name="username" className="form-control" list="datalistOptions" id="exampleDataList" disabled={getDisabled} onChange={handleChange} placeholder={getUsername}
+                           />
                         <datalist id="datalistOptions">
                             {
                                 Userdirectory.map((cval) => {
                                     return (
-                                        <option key={cval.userid} value={cval.username} />
+                                        <option  key={cval.userid} value={cval.username} />
 
                                     )
                                 })

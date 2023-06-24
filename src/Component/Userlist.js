@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Userdata from '../Userdata';
 import UserRecord from './UserRecord';
 const Userlist = () => {
+
   const navigate = useNavigate();
 
   function manageUser() {
@@ -13,9 +14,6 @@ const Userlist = () => {
   Userdata.forEach((cval) => {
     getRow.push(<UserRecord cval={cval} key={cval.userid} />)
   })
-
-  
-
 
   return (
     <>
