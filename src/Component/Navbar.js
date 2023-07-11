@@ -13,10 +13,7 @@ const Navbar = () => {
                                 Dashboard
                             </NavLink>
                             <div className="sb-sidenav-menu-heading">Interface</div>
-                            <NavLink to={"/form_type"} className="nav-link">                                        <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                                Form Type
-                            </NavLink>
-
+                           
                             
                             <div id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 
@@ -43,7 +40,7 @@ const Navbar = () => {
                                 </a>
                                     <div className="collapse" id="pagesCollapseAuth_3" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordionPages_3">
                                         <nav className="sb-sidenav-menu-nested nav">
-                                            <NavLink to={"/form_type_list"} className="nav-link">Form Type</NavLink>
+                                            <NavLink to={"/form_list"} className="nav-link">Form List</NavLink>
                                         </nav>
                                         <nav className="sb-sidenav-menu-nested nav">
                                             <NavLink to={"/account_list"} className="nav-link">Accounts</NavLink>
